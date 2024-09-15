@@ -1,4 +1,8 @@
 package com.example.demo.dao;
+import com.example.demo.model.CinemaModel;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface CinemaRepository {
+@Repository
+public interface CinemaRepository extends JpaRepository<CinemaModel, Integer> {
 }
