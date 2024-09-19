@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/cinema/cinema_details")
 public class CinemaController {
 
-    @GetMapping("/view_cinema_details")
-    public ResponseEntity<CinemaModel> cinemaDetails(){
-
-    }
+//    @GetMapping("/view_cinema_details")
+//    public ResponseEntity<CinemaModel> cinemaDetails(){
+//
+//    }
 }

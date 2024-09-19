@@ -21,15 +21,14 @@ public class MovieModel {
     @NonNull
     String movieName;
 
-    @NonNull
     float rating;
 
-    @NonNull
-    String reviews;
-
-    @NonNull
     String vid_url;
 
     List<String> img_url;
     boolean UA; //U/A if true then U or Age restricted
+
+    List<ReviewModel>movieReview;
+
+
 }

@@ -1,6 +1,7 @@
 package com.example.demo.services;
 
 import com.example.demo.dao.UserRepository;
+import com.example.demo.model.MovieModel;
 import com.example.demo.model.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,4 +35,12 @@ public class UserServices {
         }
 
     }
+
+    public void deleteUser(int user_id){
+        if(user_id!=0){
+            userRepository.deleteById(user_id);
+        }
+    }
+
+
 }

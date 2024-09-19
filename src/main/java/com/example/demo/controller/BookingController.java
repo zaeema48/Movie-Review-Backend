@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/cinema/booking")
 public class BookingController {
 
-    @PostMapping("/movie_booking")
-    public ResponseEntity<BookingModel> ticketBooking(@RequestBody BookingModel bookingModel){
-
-    }
+//    @PostMapping("/movie_booking")
+//    public ResponseEntity<BookingModel> ticketBooking(@RequestBody BookingModel bookingModel){
+//
+//    }
 }
