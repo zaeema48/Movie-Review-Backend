@@ -15,8 +15,9 @@ import java.util.List;
 public class MovieController {
     MovieService movieService;
     @PostMapping("/movie_review")
-    public ResponseEntity<String> movieReview(@RequestBody ReviewModel reviewModel){
-        movieService.
+    public ResponseEntity<String> addMovieReview(@RequestBody ReviewModel reviewModel){
+        movieService.addMovieReview(reviewModel);
+        return new ResponseEntity<>("Review added", HttpStatus.CREATED);
     }
 
     @PostMapping("/addMovie")
@@ -33,4 +34,28 @@ public class MovieController {
     public ResponseEntity<List<MovieModel>>findAllMovies(){
         return new ResponseEntity<>(movieService.findAllMovies(), HttpStatus.OK);
     }
+
+    @GetMapping("/getAllReviews")
+    public ResponseEntity<List<ReviewModel>> getMovieReviews(@RequestParam int movieId){
+        return new ResponseEntity<>(movieService.movieReviewList(movieId), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/deleteMovie")
+    public void deleteMovie(@RequestParam int movieId){
+        movieService.deleteMovie(movieId);
+    }
+
+    @GetMapping("/fetchAllReviewsOfUser")
+    public ResponseEntity<List<ReviewModel>>fetchAllReviewsOfUser(int userId){
+        List<ReviewModel> reviewList;
+        reviewList=movieService.usersAllReviews(userId);
+        if(reviewList.isEmpty()){
+            return new ResponseEntity<>(reviewList, HttpStatus.NOT_FOUND);
+        }
+        else{
+            return new ResponseEntity<>(reviewList, HttpStatus.OK);
+        }
+    }
+
+
 }

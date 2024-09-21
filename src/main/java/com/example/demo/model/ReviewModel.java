@@ -10,7 +10,7 @@ import org.hibernate.annotations.DynamicUpdate;
 @Entity
 @Table(name="review_table")
 @DynamicUpdate
-@Getter
+@Data
 @NoArgsConstructor
 public class ReviewModel {
     @Id
