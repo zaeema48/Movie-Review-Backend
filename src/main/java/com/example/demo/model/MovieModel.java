@@ -28,7 +28,6 @@ public class MovieModel {
     List<String> img_url;
     boolean UA; //U/A if true then U or Age restricted
 
-    List<ReviewModel>movieReview;
 
 
 }

@@ -4,6 +4,7 @@ import com.example.demo.model.MovieModel;
 import com.example.demo.model.ReviewModel;
 import com.example.demo.model.UserModel;
 import com.example.demo.services.MovieService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/cinema/movie")
 public class MovieController {
+    @Autowired
     MovieService movieService;
     @PostMapping("/movie_review")
     public ResponseEntity<String> addMovieReview(@RequestBody ReviewModel reviewModel){
@@ -26,7 +28,7 @@ public class MovieController {
     }
 
     @GetMapping("/searchMovie")
-    public ResponseEntity<List<MovieModel>>searchMovie(String movieName){
+    public ResponseEntity<List<MovieModel>>searchMovie(@RequestParam String movieName){
         return new  ResponseEntity<>(movieService.searchMovie(movieName), HttpStatus.OK);
     }
 
@@ -46,7 +48,7 @@ public class MovieController {
     }
 
     @GetMapping("/fetchAllReviewsOfUser")
-    public ResponseEntity<List<ReviewModel>>fetchAllReviewsOfUser(int userId){
+    public ResponseEntity<List<ReviewModel>>fetchAllReviewsOfUser(@RequestParam int userId){
         List<ReviewModel> reviewList;
         reviewList=movieService.usersAllReviews(userId);
         if(reviewList.isEmpty()){

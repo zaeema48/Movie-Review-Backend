@@ -17,12 +17,12 @@ public class MovieService {
     private MovieRepository movieRepository;                 //loose coupling
 
     public void addMovie(MovieModel movie){
-        if(movie!=null){
+//        if(movie!=null){
             movieRepository.save(movie);
-        }
-        else{
-            throw new NullPointerException();
-        }
+//        }
+//        else{
+//            throw new NullPointerException();
+//        }
     }
 
     public List<MovieModel> searchMovie(String movieName){
